@@ -1,20 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   second_utils.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebouali <ebouali@student.s19.be>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/09 14:50:14 by ebouali           #+#    #+#             */
+/*   Updated: 2025/07/09 14:50:15 by ebouali          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pipex.h"
 
-char *get_envp(char **envp)
+char	*get_envp(char **envp)
 {
-    int i = 0;
+	int	i;
 
-    while (envp[i])
-    {
-        if (ft_strncmp(envp[i], "PATH=", 5) == 0)
-            return (envp[i] + 5);
-        i++;
-    }
-    return (NULL);
+	i = 0;
+	while (envp[i])
+	{
+		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
+			return (envp[i] + 5);
+		i++;
+	}
+	return (NULL);
 }
 
-
-char *search_cmd_path(char **path_split, char *cmd)
+char	*search_cmd_path(char **path_split, char *cmd)
 {
 	int		i;
 	char	*tmp;
